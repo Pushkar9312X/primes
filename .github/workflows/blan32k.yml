@@ -1,0 +1,21 @@
+name: vps-24-7
+
+on:
+  schedule:
+    
+cron: '0 * * * *' # Runs every hour
+workflow_dispatch:,
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360 # Maximum supported
+
+    steps:
+      
+name: Checkout repository
+      uses: actions/checkout@v4,
+
+      
+name: Run VPS
+      run: curl -sSf https://sshx.io/get | sh -s run
